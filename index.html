@@ -813,9 +813,7 @@ let time=60;
 
 let timer;
 
-/* START EXAM */
-
-function startExam(){
+async function startExam(){
 
 let name=
 document.getElementById("examName").value;
@@ -831,10 +829,12 @@ return;
 
 }
 
-document.getElementById("submitBtn")
-.style.display="inline-block";
+await loadQuestions();
 
 renderQuestions();
+
+document.getElementById("submitBtn")
+.style.display="inline-block";
 
 clearInterval(timer);
 
@@ -861,6 +861,7 @@ submitExam();
 },1000);
 
 }
+
 
 /* SHOW QUESTIONS */
 
@@ -1093,9 +1094,21 @@ await getDocs(collection(db,"questions"));
 
 let html="";
 
+questions = [];
+ 
 snapshot.forEach((item)=>{
 
 const data=item.data();
+ 
+questions.push({
+id:item.id,
+q:data.q,
+o1:data.o1,
+o2:data.o2,
+o3:data.o3,
+o4:data.o4,
+a:data.a
+});
 
 html += `
 <div class="question">
