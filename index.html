@@ -760,13 +760,37 @@ Add Question
 /* REGISTRATION */
 
 document.getElementById("regForm")
-.addEventListener("submit",function(e){
+.addEventListener("submit", async function(e){
 
 e.preventDefault();
 
-alert("Registration Successful");
+try{
+
+await addDoc(collection(db,"students"),{
+
+name:document.getElementById("regName").value,
+father:document.getElementById("regFather").value,
+mobile:document.getElementById("regMobile").value,
+email:document.getElementById("regEmail").value,
+course:document.getElementById("regCourse").value,
+address:document.getElementById("regAddress").value,
+createdAt:new Date()
 
 });
+
+alert("Registration Saved Successfully");
+
+document.getElementById("regForm").reset();
+
+}catch(error){
+
+console.log(error);
+
+alert("Firebase Error");
+
+}
+
+});  
 
 /* QUESTIONS */
 
@@ -1097,6 +1121,31 @@ showQuestions();
 }
 
 </script>
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyBjhPfk-DB58m7wj3YgWlqpP4uYDRUmeHI",
+authDomain: "alish-computer-institute.firebaseapp.com",
+projectId: "alish-computer-institute",
+storageBucket: "alish-computer-institute.firebasestorage.app",
+messagingSenderId: "178619008604",
+appId: "1:178619008604:web:3adc636798368135b54899"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.db = db;
+window.collection = collection;
+window.addDoc = addDoc;
+</script>
 </body>
 </html>
