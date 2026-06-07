@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alish Computer Institute</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:
+linear-gradient(135deg,#0f172a,#1e293b,#0ea5e9);
+background-size:400% 400%;
+animation:bgAnimation 12s ease infinite;
+color:white;
+overflow-x:hidden;
+}
+
+@keyframes bgAnimation{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* NAVBAR */
+
+nav{
+background:rgba(0,0,0,.4);
+backdrop-filter:blur(10px);
+padding:18px;
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+position:sticky;
+top:0;
+z-index:999;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+nav a:hover{
+color:cyan;
+}
+
+/* LIVE NOTICE */
+
+.live-notice{
+background:
+linear-gradient(45deg,#06b6d4,#3b82f6);
+padding:12px;
+font-size:17px;
+font-weight:bold;
+color:white;
+box-shadow:0 0 15px cyan;
+overflow:hidden;
+}
+
+/* HERO */
+
+header{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1600');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:75px;
+text-shadow:0 0 30px cyan;
+animation:glow 2s infinite alternate;
+}
+
+.hero p{
+font-size:20px;
+margin-top:20px;
+max-width:850px;
+line-height:1.8;
+}
+
+.hero button{
+padding:15px 35px;
+border:none;
+background:linear-gradient(45deg,#06b6d4,#3b82f6);
+color:white;
+font-size:18px;
+border-radius:50px;
+cursor:pointer;
+margin-top:30px;
+transition:.4s;
+}
+
+.hero button:hover{
+transform:scale(1.08);
+box-shadow:0 0 20px cyan;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 20px cyan;}
+to{text-shadow:0 0 40px #00f7ff;}
+}
+
+/* SECTION */
+
+section{
+padding:80px 8%;
+}
+
+.title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.title h2{
+font-size:45px;
+text-shadow:0 0 20px cyan;
+}
+
+.title p{
+margin-top:10px;
+color:#ddd;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+/* CARD */
+
+.card,
+.box,
+form,
+.result-box{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.1);
+padding:30px;
+border-radius:20px;
+box-shadow:0 8px 32px rgba(0,0,0,0.3);
+transition:.5s;
+}
+
+.card:hover{
+transform:
+rotateY(10deg)
+rotateX(10deg)
+translateY(-10px);
+}
+
+/* INPUT */
+
+input,
+select,
+textarea{
+width:100%;
+padding:14px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid rgba(255,255,255,.1);
+background:rgba(255,255,255,.08);
+color:white;
+outline:none;
+}
+
+input::placeholder{
+color:#ddd;
+}
+
+/* BUTTON */
+
+button{
+padding:14px 25px;
+border:none;
+background:linear-gradient(45deg,#06b6d4,#3b82f6);
+color:white;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+transition:.4s;
+margin-top:10px;
+}
+
+button:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px cyan;
+}
+
+/* QUESTION */
+
+.question{
+background:rgba(255,255,255,.06);
+padding:20px;
+border-radius:15px;
+margin:20px 0;
+}
+
+/* TIMER */
+
+.timer{
+font-size:30px;
+font-weight:bold;
+color:cyan;
+text-shadow:0 0 15px cyan;
+}
+
+/* RESULT */
+
+.pass{
+color:#00ff88;
+font-size:40px;
+text-shadow:0 0 20px #00ff88;
+}
+
+.fail{
+color:red;
+font-size:40px;
+text-shadow:0 0 20px red;
+}
+
+/* GALLERY */
+
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+transition:.5s;
+}
+
+.gallery img:hover{
+transform:scale(1.08);
+box-shadow:0 0 25px cyan;
+}
+
+/* FOOTER */
+
+footer{
+background:rgba(0,0,0,.5);
+backdrop-filter:blur(10px);
+padding:30px;
+text-align:center;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:42px;
+}
+
+.title h2{
+font-size:32px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<header>
+
+<div class="hero">
+
+<h1>Alish Computer Institute</h1>
+
+<p>
+
+Professional College Style Computer Institute Website
+With Online Registration, Online Exam,
+Admin Dashboard & Result System
+
+</p>
+
+<button onclick="document.getElementById('registration').scrollIntoView()">
+
+Apply Now
+
+</button>
+
+</div>
+
+</header>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<a href="#registration">Registration</a>
+<a href="#exam">Online Exam</a>
+<a href="#result">Result</a>
+<a href="#dashboard">Dashboard</a>
+<a href="#gallery">Gallery</a>
+<a href="#faculty">Faculty</a>
+<a href="#placement">Placement</a>
+<a href="#admin">Admin</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+<!-- LIVE NOTICE -->
+
+<div class="live-notice">
+
+<marquee behavior="scroll"
+direction="left"
+scrollamount="6">
+
+📢 New Admission Open For 2026 Session |
+📝 Online Exam Start From Monday |
+🎓 Certificate Distribution Next Week |
+📄 Result Declared For ADCA Students |
+🏖 Summer Vacation From June 15 |
+💻 New Web Designing Batch Started |
+🔥 Special Discount Available On ADCA Course |
+📚 Free Demo Classes Available |
+
+</marquee>
+
+</div>
+
+<!-- REGISTRATION -->
+
+<section id="registration">
+
+<div class="title">
+
+<h2>Online Registration</h2>
+
+<p>Student Admission Form</p>
+
+</div>
+
+<form id="regForm">
+
+<input type="text"
+id="regName"
+placeholder="Student Name"
+required>
+
+<input type="text"
+id="regFather"
+placeholder="Father Name"
+required>
+
+<input type="number"
+id="regMobile"
+placeholder="Mobile Number"
+required>
+
+<input type="email"
+id="regEmail"
+placeholder="Email">
+
+<select id="regCourse">
+
+<option>Select Course</option>
+
+<option>DCA</option>
+<option>ADCA</option>
+<option>Tally</option>
+<option>Web Designing</option>
+
+</select>
+
+<input type="text"
+id="regAddress"
+placeholder="Address">
+
+<button type="submit">
+
+Submit Registration
+
+</button>
+
+</form>
+
+</section>
+
+<!-- ONLINE EXAM -->
+
+<section id="exam">
+
+<div class="title">
+
+<h2>Online Examination</h2>
+
+<p>Roll Number Se Exam Start Kare</p>
+
+</div>
+
+<div class="box">
+
+<input type="text"
+id="examName"
+placeholder="Student Name">
+
+<input type="text"
+id="examRoll"
+placeholder="Roll Number">
+
+<button onclick="startExam()">
+
+Start Exam
+
+</button>
+
+<br><br>
+
+<div class="timer"
+id="timer">
+
+Time: 60
+
+</div>
+
+<div id="quizBox"></div>
+
+<button id="submitBtn"
+style="display:none"
+onclick="submitExam()">
+
+Submit Exam
+
+</button>
+
+</div>
+
+</section>
+
+<!-- RESULT -->
+
+<section id="result">
+
+<div class="title">
+
+<h2>Check Result</h2>
+
+<p>Roll Number Se Result Check Kare</p>
+
+</div>
+
+<div class="result-box">
+
+<input type="text"
+id="searchRoll"
+placeholder="Enter Roll Number">
+
+<button onclick="checkResult()">
+
+Check Result
+
+</button>
+
+<div id="resultData"></div>
+
+</div>
+
+</section>
+
+<!-- DASHBOARD -->
+
+<section id="dashboard">
+
+<div class="title">
+
+<h2>Student Dashboard</h2>
+
+<p>Student Academic Information</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>👤 Student Profile</h3>
+
+<p>Name : Sumit</p>
+<p>Course : ADCA</p>
+<p>Session : 2025-26</p>
+
+</div>
+
+<div class="card">
+
+<h3>📅 Attendance</h3>
+
+<p>Present : 92%</p>
+<p>Absent : 8%</p>
+
+</div>
+
+<div class="card">
+
+<h3>💰 Fees Status</h3>
+
+<p>Total Fees : ₹12000</p>
+<p>Paid : ₹9000</p>
+<p>Due : ₹3000</p>
+
+</div>
+
+<div class="card">
+
+<h3>📄 Downloads</h3>
+
+<button>Download Certificate</button>
+<button>Download Admit Card</button>
+<button>Download ID Card</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<div class="title">
+
+<h2>Institute Gallery</h2>
+
+<p>Campus & Student Activities</p>
+
+</div>
+
+<div class="grid gallery">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200">
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200">
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200">
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200">
+</div>
+
+</div>
+
+</section>
+
+<!-- FACULTY -->
+
+<section id="faculty">
+
+<div class="title">
+
+<h2>Our Faculty</h2>
+
+<p>Professional Teachers</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Vinod Pandey</h3>
+<p>front-End</p>
+<p>Web Designing Expert</p>
+
+</div>
+
+<div class="card">
+
+<h3>Ashwani Pandey</h3>
+<p>'O'-Level</p>
+<p>Tally & GST Trainer</p>
+
+</div>
+
+<div class="card">
+
+<h3>Vinod Pandey</h3>
+<p>front-end</p>
+<p>Programming Faculty</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PLACEMENT -->
+
+<section id="placement">
+
+<div class="title">
+
+<h2>Placement Records</h2>
+
+<p>Student Success Stories</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>💼 Infosys</h3>
+<p>Package : ₹3.5 LPA</p>
+
+</div>
+
+<div class="card">
+
+<h3>💼 TCS</h3>
+<p>Package : ₹4.2 LPA</p>
+
+</div>
+
+<div class="card">
+
+<h3>💼 Wipro</h3>
+<p>Package : ₹3.8 LPA</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ADMIN -->
+
+<section id="admin">
+
+<div class="title">
+
+<h2>Admin Panel</h2>
+
+<p>Add / Delete Questions</p>
+
+</div>
+
+<div class="box">
+
+<input type="password"
+id="adminPass"
+placeholder="Admin Password">
+
+<button onclick="adminLogin()">
+
+Login
+
+</button>
+
+<div id="adminPanel"
+style="display:none">
+
+<input type="text"
+id="question"
+placeholder="Question">
+
+<input type="text"
+id="option1"
+placeholder="Option 1">
+
+<input type="text"
+id="option2"
+placeholder="Option 2">
+
+<input type="number"
+id="answer"
+placeholder="Correct Answer">
+
+<button onclick="addQuestion()">
+
+Add Question
+
+</button>
+
+<div id="questionList"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="title">
+
+<h2>Contact Us</h2>
+
+<p>Institute Information</p>
+
+</div>
+
+<div class="box">
+
+<p><b>Institute :</b> Alish Computer Institute</p>
+
+<p><b>Phone :</b> +91 8577051520</p>
+
+<p><b>Email :</b> info@alishcomputer.com</p>
+
+<p><b>Timing :</b> Monday - Saturday</p>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>Alish Computer Institute</h3>
+
+<p>© 2026 All Rights Reserved</p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* REGISTRATION */
+
+document.getElementById("regForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+alert("Registration Successful");
+
+});
+
+/* QUESTIONS */
+
+let questions=
+JSON.parse(localStorage.getItem("questions")) || [
+
+{
+q:"HTML Full Form?",
+o1:"Hyper Text Markup Language",
+o2:"High Tool ML",
+a:1
+},
+
+{
+q:"CSS Used For?",
+o1:"Design",
+o2:"Database",
+a:1
+}
+
+];
+
+let results=
+JSON.parse(localStorage.getItem("results")) || {};
+
+let time=60;
+
+let timer;
+
+/* START EXAM */
+
+function startExam(){
+
+let name=
+document.getElementById("examName").value;
+
+let roll=
+document.getElementById("examRoll").value;
+
+if(name=="" || roll==""){
+
+alert("Enter Name & Roll");
+
+return;
+
+}
+
+document.getElementById("submitBtn")
+.style.display="inline-block";
+
+renderQuestions();
+
+clearInterval(timer);
+
+time=60;
+
+document.getElementById("timer")
+.innerText="Time: "+time;
+
+timer=setInterval(()=>{
+
+time--;
+
+document.getElementById("timer")
+.innerText="Time: "+time;
+
+if(time<=0){
+
+clearInterval(timer);
+
+submitExam();
+
+}
+
+},1000);
+
+}
+
+/* SHOW QUESTIONS */
+
+function renderQuestions(){
+
+let quiz=
+document.getElementById("quizBox");
+
+quiz.innerHTML="";
+
+questions.forEach((item,index)=>{
+
+quiz.innerHTML+=`
+
+<div class="question">
+
+<h3>${index+1}. ${item.q}</h3>
+
+<label>
+
+<input type="radio"
+name="q${index}"
+value="1">
+
+${item.o1}
+
+</label>
+
+<br><br>
+
+<label>
+
+<input type="radio"
+name="q${index}"
+value="2">
+
+${item.o2}
+
+</label>
+
+</div>
+
+`;
+
+});
+
+}
+
+/* SUBMIT EXAM */
+
+function submitExam(){
+
+clearInterval(timer);
+
+let score=0;
+
+questions.forEach((item,index)=>{
+
+let ans=document.querySelector(
+`input[name=q${index}]:checked`
+);
+
+if(ans && Number(ans.value)==item.a){
+
+score++;
+
+}
+
+});
+
+let student=
+document.getElementById("examName").value;
+
+let roll=
+document.getElementById("examRoll").value;
+
+let status=
+score>=questions.length/2
+?"PASS":"FAIL";
+
+results[roll]={
+
+name:student,
+
+score:score,
+
+total:questions.length,
+
+status:status
+
+};
+
+localStorage.setItem(
+"results",
+JSON.stringify(results)
+);
+
+alert("Exam Submitted");
+
+}
+
+/* CHECK RESULT */
+
+function checkResult(){
+
+let roll=
+document.getElementById("searchRoll").value;
+
+let data=results[roll];
+
+if(data){
+
+document.getElementById("resultData")
+.innerHTML=`
+
+<h2>${data.name}</h2>
+
+<h3>Roll No : ${roll}</h3>
+
+<h3>Marks :
+${data.score}/${data.total}</h3>
+
+<h1 class="${
+data.status=="PASS"
+?"pass":"fail"
+}">
+
+${data.status}
+
+</h1>
+
+`;
+
+}else{
+
+document.getElementById("resultData")
+.innerHTML=`
+
+<h2 style="color:red">
+Result Not Found
+</h2>
+
+`;
+
+}
+
+}
+
+/* ADMIN LOGIN */
+
+function adminLogin(){
+
+let pass=
+document.getElementById("adminPass").value;
+
+if(pass=="admin123"){
+
+document.getElementById("adminPanel")
+.style.display="block";
+
+showQuestions();
+
+}else{
+
+alert("Wrong Password");
+
+}
+
+}
+
+/* ADD QUESTION */
+
+function addQuestion(){
+
+let q=
+document.getElementById("question").value;
+
+let o1=
+document.getElementById("option1").value;
+
+let o2=
+document.getElementById("option2").value;
+
+let a=
+document.getElementById("answer").value;
+
+questions.push({
+
+q:q,
+o1:o1,
+o2:o2,
+a:Number(a)
+
+});
+
+localStorage.setItem(
+"questions",
+JSON.stringify(questions)
+);
+
+showQuestions();
+
+alert("Question Added");
+
+}
+
+/* SHOW QUESTIONS */
+
+function showQuestions(){
+
+let box=
+document.getElementById("questionList");
+
+box.innerHTML="";
+
+questions.forEach((item,index)=>{
+
+box.innerHTML+=`
+
+<div class="question">
+
+<h3>${index+1}. ${item.q}</h3>
+
+<button onclick="deleteQuestion(${index})">
+
+Delete
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+/* DELETE QUESTION */
+
+function deleteQuestion(index){
+
+questions.splice(index,1);
+
+localStorage.setItem(
+"questions",
+JSON.stringify(questions)
+);
+
+showQuestions();
+
+}
+
+</script>
+
+</body>
+</html>
