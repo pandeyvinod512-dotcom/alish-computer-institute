@@ -1031,7 +1031,7 @@ if(pass=="admin123"){
 document.getElementById("adminPanel")
 .style.display="block";
 
-showQuestions();
+loadQuestions();
 loadStudents();
 
 }else{
@@ -1044,83 +1044,71 @@ alert("Wrong Password");
 
 /* ADD QUESTION */
 
-function addQuestion(){
+async function addQuestion(){
 
-let q=
-document.getElementById("question").value;
+let q=document.getElementById("question").value;
+let o1=document.getElementById("option1").value;
+let o2=document.getElementById("option2").value;
+let a=document.getElementById("answer").value;
 
-let o1=
-document.getElementById("option1").value;
-
-let o2=
-document.getElementById("option2").value;
-
-let a=
-document.getElementById("answer").value;
-
-questions.push({
-
+await addDoc(
+collection(db,"questions"),
+{
 q:q,
 o1:o1,
 o2:o2,
 a:Number(a)
-
-});
-
-localStorage.setItem(
-"questions",
-JSON.stringify(questions)
+}
 );
-
-showQuestions();
 
 alert("Question Added");
 
-}
+loadQuestions();
 
+}
 /* SHOW QUESTIONS */
 
-function showQuestions(){
+async function loadQuestions(){
 
-let box=
-document.getElementById("questionList");
+const snapshot =
+await getDocs(collection(db,"questions"));
 
-box.innerHTML="";
+let html="";
 
-questions.forEach((item,index)=>{
+snapshot.forEach((item)=>{
 
-box.innerHTML+=`
+const data=item.data();
 
+html += `
 <div class="question">
 
-<h3>${index+1}. ${item.q}</h3>
+<h3>${data.q}</h3>
 
-<button onclick="deleteQuestion(${index})">
+<button onclick="deleteQuestion('${item.id}')">
 
 Delete
 
 </button>
 
 </div>
-
 `;
 
 });
+
+document.getElementById("questionList")
+.innerHTML = html;
 
 }
 
 /* DELETE QUESTION */
 
-function deleteQuestion(index){
+async function deleteQuestion(id){
 
-questions.splice(index,1);
-
-localStorage.setItem(
-"questions",
-JSON.stringify(questions)
+await deleteDoc(
+doc(db,"questions",id)
 );
 
-showQuestions();
+loadQuestions();
 
 }
   async function loadStudents(){
@@ -1158,7 +1146,9 @@ import {
 getFirestore,
 collection,
 addDoc,
-getDocs
+getDocs,
+deleteDoc,
+doc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -1176,6 +1166,9 @@ const db = getFirestore(app);
 window.db = db;
 window.collection = collection;
 window.addDoc = addDoc;
+window.getDocs = getDocs;
+window.deleteDoc = deleteDoc;
+window.doc = doc;
 window.getDocs = getDocs;
 </script>
 </body>
