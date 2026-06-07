@@ -710,6 +710,9 @@ Add Question
 </button>
 
 <div id="questionList"></div>
+ 
+<h2>Registered Students</h2>
+<div id="studentList"></div>
 
 </div>
 
@@ -1029,6 +1032,7 @@ document.getElementById("adminPanel")
 .style.display="block";
 
 showQuestions();
+loadStudents();
 
 }else{
 
@@ -1119,6 +1123,31 @@ JSON.stringify(questions)
 showQuestions();
 
 }
+  async function loadStudents(){
+
+const snapshot =
+await getDocs(collection(db,"students"));
+
+let html = "";
+
+snapshot.forEach((student)=>{
+
+const data = student.data();
+
+html += `
+<div class="question">
+<h3>${data.name}</h3>
+<p>Father: ${data.father}</p>
+<p>Mobile: ${data.mobile}</p>
+<p>Course: ${data.course}</p>
+</div>
+`;
+
+});
+
+document.getElementById("studentList").innerHTML = html;
+
+}
 
 </script>
 <script type="module">
@@ -1128,7 +1157,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import {
 getFirestore,
 collection,
-addDoc
+addDoc,
+getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -1146,6 +1176,7 @@ const db = getFirestore(app);
 window.db = db;
 window.collection = collection;
 window.addDoc = addDoc;
+window.getDocs = getDocs;
 </script>
 </body>
 </html>
