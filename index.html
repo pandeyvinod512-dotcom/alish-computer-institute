@@ -699,6 +699,14 @@ placeholder="Option 1">
 id="option2"
 placeholder="Option 2">
 
+ <input type="text"
+id="option3"
+placeholder="Option 3">
+
+<input type="text"
+id="option4"
+placeholder="Option 4">
+
 <input type="number"
 id="answer"
 placeholder="Correct Answer">
@@ -797,11 +805,9 @@ alert("Firebase Error");
 
 /* QUESTIONS */
 
-let questions=
-JSON.parse(localStorage.getItem("questions")) || [
+let questions = [];
 
-{
-q:"HTML Full Form?",
+ q:"HTML Full Form?",
 o1:"Hyper Text Markup Language",
 o2:"High Tool ML",
 a:1
@@ -908,6 +914,30 @@ name="q${index}"
 value="2">
 
 ${item.o2}
+
+</label>
+
+<br><br>
+
+<label>
+
+<input type="radio"
+name="q${index}"
+value="3">
+
+${item.o3}
+
+</label>
+
+<br><br>
+
+<label>
+
+<input type="radio"
+name="q${index}"
+value="4">
+
+${item.o4}
 
 </label>
 
@@ -1049,6 +1079,8 @@ async function addQuestion(){
 let q=document.getElementById("question").value;
 let o1=document.getElementById("option1").value;
 let o2=document.getElementById("option2").value;
+let o3=document.getElementById("option3").value;
+let o4=document.getElementById("option4").value;
 let a=document.getElementById("answer").value;
 
 await addDoc(
@@ -1057,6 +1089,8 @@ collection(db,"questions"),
 q:q,
 o1:o1,
 o2:o2,
+o3:o3,
+o4:o4,
 a:Number(a)
 }
 );
